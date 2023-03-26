@@ -15,7 +15,8 @@ describe 'Customers' do
 
     describe "using the customers index" do
       let!(:customer1) {
-        create(:customer, first_name: 'John', last_name: 'Doe', enterprise: managed_distributor1, code: nil)
+        create(:customer, first_name: 'John', last_name: 'Doe', enterprise: managed_distributor1, 
+code: nil)
       }
       let!(:customer2) { create(:customer, enterprise: managed_distributor1, code: nil) }
       let!(:customer3) { create(:customer, enterprise: unmanaged_distributor) }

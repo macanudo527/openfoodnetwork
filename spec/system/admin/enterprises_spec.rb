@@ -197,7 +197,8 @@ describe '
     shop_message_input.native.send_keys('This is my shopfront message.')
     expect(page).to have_checked_field "enterprise_preferred_shopfront_order_cycle_order_orders_close_at"
     #using "find" as fields outside of the screen and are not visible
-    find(:xpath, '//*[@id="enterprise_preferred_shopfront_order_cycle_order_orders_open_at"]').trigger("click")
+    find(:xpath, 
+'//*[@id="enterprise_preferred_shopfront_order_cycle_order_orders_open_at"]').trigger("click")
     find(:xpath, '//*[@id="enterprise_enable_subscriptions_true"]').trigger("click")
 
     accept_alert do
@@ -479,7 +480,8 @@ describe '
                                     coordinator: create(:distributor_enterprise), orders_close_at: 2.days.from_now)
       }
       let(:product) {
-        create(:simple_product, supplier: supplier1, primary_taxon: taxon, properties: [property], name: "Beans")
+        create(:simple_product, supplier: supplier1, primary_taxon: taxon, properties: [property], 
+name: "Beans")
       }
       let(:variant) { product.variants.first }
       let(:exchange1) { oc1.exchanges.to_enterprises(distributor1).outgoing.first }

@@ -95,7 +95,7 @@ module Spree
     }
     validate :disallow_guest_order
     validates :email, presence: true,
-                      format: /\A([\w.%+\-']+)@([\w\-]+\.)+(\w{2,})\z/i,
+                      format: /\A([\w.%+\-']+)@([\w-]+\.)+(\w{2,})\z/i,
                       if: :require_email
 
     make_permalink field: :number
@@ -311,7 +311,8 @@ module Spree
     # Creates new tax charges if there are any applicable rates. If prices already
     # include taxes then price adjustments are created instead.
     def create_tax_charge!
-      return if state.in?(["cart", "address", "delivery"]) && OpenFoodNetwork::FeatureToggle.enabled?(:split_checkout)
+      return if state.in?(["cart", "address", 
+"delivery"]) && OpenFoodNetwork::FeatureToggle.enabled?(:split_checkout)
 
       clear_legacy_taxes!
 
