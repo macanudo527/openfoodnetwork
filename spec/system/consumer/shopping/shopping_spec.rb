@@ -279,8 +279,9 @@ describe "As a consumer I want to shop with a distributor" do
           expect(page).to have_content product2.name
           expect(page).to have_content product3.name
 
-          expect(page).to have_selector
+          expect(page).to have_selector(
             ".sticky-shop-filters-container .property-selectors span", text: "certified"
+          )
           find(".sticky-shop-filters-container .property-selectors span", text: 'certified').click
           expect(page).to have_content "Results for certified"
 

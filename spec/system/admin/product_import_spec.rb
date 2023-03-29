@@ -404,12 +404,14 @@ describe "Product Import" do
       visit main_app.admin_inventory_path
 
       expect(page).to have_content "Beets"
-      expect(page).to have_select
+      expect(page).to have_select(
         "variant-overrides-#{Spree::Product.find_by(name: 'Beets').variants.first.id}-on_demand",
-                                  selected: "Yes"
-      expect(page).to have_input
+        selected: "Yes"
+      )
+      expect(page).to have_input(
         "variant-overrides-#{Spree::Product.find_by(name: 'Beets').variants.first.id}-price",
-                                 with: "3.2"
+        with: "3.2"
+      )
     end
 
     describe "Item type products" do
@@ -442,12 +444,14 @@ describe "Product Import" do
         visit main_app.admin_inventory_path
 
         expect(page).to have_content "Aubergine"
-        expect(page).to have_select
+        expect(page).to have_select(
           "variant-overrides-#{Spree::Product.find_by(name: 'Aubergine').variants.first.id}"\
           "-on_demand", selected: "Yes"
-        expect(page).to have_input
+        )
+        expect(page).to have_input(
           "variant-overrides-#{Spree::Product.find_by(name: 'Aubergine').variants.first.id}"\
           "-price", with: "3.3"
+        )
       end
 
       it "displays the appropriate error message, when variant unit names are inconsistent" do

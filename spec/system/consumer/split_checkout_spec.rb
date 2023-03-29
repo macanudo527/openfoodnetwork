@@ -642,8 +642,9 @@ describe "As a consumer, I want to checkout my order" do
 
         it "pre-fills address details" do
           visit checkout_path
-          expect(page).to have_select
+          expect(page).to have_select(
             "order_bill_address_attributes_state_id", selected: "Testville"
+          )
           expect(page).to have_field "order_bill_address_attributes_zipcode", with: "TST01"
         end
       end
